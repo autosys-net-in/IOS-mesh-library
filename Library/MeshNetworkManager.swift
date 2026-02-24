@@ -35,7 +35,7 @@ public class MeshNetworkManager: NetworkParametersProvider {
     /// Mesh Network data.
     private var meshData: MeshData
     /// The Network Layer handler.
-    var networkManager: NetworkManager?
+    public var networkManager: NetworkManager?
     /// Storage to keep the app data.
     private let storage: Storage
     
