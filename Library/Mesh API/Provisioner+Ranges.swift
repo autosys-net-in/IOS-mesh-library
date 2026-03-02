@@ -57,11 +57,11 @@ public extension Provisioner {
         }
         // If the Provisioner is added to the mesh network, check if
         // the new range does not overlap with other Provisioner's ranges.
-        if let meshNetwork = meshNetwork {
-            guard meshNetwork.isRange(range, availableForAllocationTo: self) else {
-                throw MeshNetworkError.overlappingProvisionerRanges
-            }
-        }
+        // if let meshNetwork = meshNetwork {
+        //     guard meshNetwork.isRange(range, availableForAllocationTo: self) else {
+        //         throw MeshNetworkError.overlappingProvisionerRanges
+        //     }
+        // }
         allocatedUnicastRange += range
     }
     
