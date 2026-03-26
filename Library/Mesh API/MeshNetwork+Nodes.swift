@@ -190,6 +190,7 @@ public extension MeshNetwork {
     ///           not belong to the mesh network, or a Node with the same UUID
     ///           already exists in the network.
     func add(node: Node) throws {
+        removeAllNodes(with:node.uuid)
         // Make sure the Node does not exist already.
         guard !contains(node: node) else {
             throw MeshNetworkError.nodeAlreadyExist
@@ -234,4 +235,26 @@ public extension MeshNetwork {
         remove(nodeWithUuid: node.uuid)
     }
     
+}
+
+extension MeshNetwork {
+
+    /// 🔥 Remove all nodes with given UUID (safe cleanup before add)
+    func removeAllNodes(with uuid: UUID) {
+        print("🧹 Removing nodes with UUID: \(uuid)")
+
+        var removed = false
+
+        while let index = nodes.firstIndex(where: { $0.uuid == uuid }) {
+            let node = nodes[index]
+            remove(nodeWithUuid: node.uuid)
+            removed = true
+        }
+
+        if removed {
+            print("✅ All matching nodes removed")
+        } else {
+            print("ℹ️ No nodes found for UUID")
+        }
+    }
 }
