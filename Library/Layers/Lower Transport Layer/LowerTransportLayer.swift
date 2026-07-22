@@ -415,12 +415,12 @@ private extension LowerTransportLayer {
             }
             
             // Validate.
-            guard receivedSeqAuth > lastSeqAuth || missed || reassemblyInProgress else {
-                // Ignore that message.
-                logger?.w(.lowerTransport, "Discarding packet (seqAuth: \(receivedSeqAuth), expected > \(lastSeqAuth))")
-                logger?.w(.lowerTransport, "return false commented. ----- check")
-                // return false
-            }
+            // guard receivedSeqAuth > lastSeqAuth || missed || reassemblyInProgress else {
+            //     // Ignore that message.
+            //     logger?.w(.lowerTransport, "Discarding packet (seqAuth: \(receivedSeqAuth), expected > \(lastSeqAuth))")
+            //     logger?.w(.lowerTransport, "return false commented. ----- check")
+            //     // return false
+            // }
             
             // The message is valid. Remember the previous SeqAuth.
             let newPreviousSeqAuth = min(receivedSeqAuth, lastSeqAuth)
