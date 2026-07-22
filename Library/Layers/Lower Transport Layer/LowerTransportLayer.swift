@@ -418,7 +418,8 @@ private extension LowerTransportLayer {
             guard receivedSeqAuth > lastSeqAuth || missed || reassemblyInProgress else {
                 // Ignore that message.
                 logger?.w(.lowerTransport, "Discarding packet (seqAuth: \(receivedSeqAuth), expected > \(lastSeqAuth))")
-                return false
+                logger?.w(.lowerTransport, "return false commented. ----- check")
+                // return false
             }
             
             // The message is valid. Remember the previous SeqAuth.
