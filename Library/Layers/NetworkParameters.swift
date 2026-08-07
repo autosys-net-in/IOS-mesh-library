@@ -531,7 +531,7 @@ public struct NetworkParameters {
     /// which is the default value.
     public var acknowledgmentMessageTimeout: TimeInterval {
         get { return _acknowledgmentMessageTimeout }
-        set { _acknowledgmentMessageTimeout = max(30.0, newValue) }
+        set { _acknowledgmentMessageTimeout = max(2.0, newValue) }
     }
     
     /// The base time after which the acknowledged message will be repeated.
